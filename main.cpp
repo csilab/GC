@@ -31,7 +31,7 @@ using namespace std;
 using namespace NTL;
 
 
-void demo(long mlen, int numDels, int numChecker, int lengthExtension, int number=1){
+void demo(long mlen, int numDels, int numChecker, int lengthExtension, int number=1){//a
         double elapsed_secs;
         long success = 0;
         long total = 0;
