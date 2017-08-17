@@ -11,5 +11,7 @@ Detailed installation guide can be found in Shoup's website. However, below are 
 3. One quick way to compile the code in terminal is:
 cd to the folder containing the GC codes and type the following (replace foo with your main.cpp)
 % g++ -g -O2 foo.cpp -o foo -lntl -lgmp -lm
-4. Add additional linking flags to your linker setting of you IDE: -lntl -lgmp -lm
+4. Add additional linking flags to your linker setting of you IDE: -lntl -lgmp -lm.
 
+#Using the GC codes
+Once NTL is correctly installed, you should be able to compile and run the simulation.
