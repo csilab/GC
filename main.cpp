@@ -33,13 +33,11 @@ using namespace NTL;
 
 void demo(long mlen, int numDels, int numChecker, int lengthExtension, int number=1){
         double elapsed_secs;
-        long count = 0;
-        long size = 0;
-
+        long success = 0;
+        long total = 0;
         Decoder de(mlen, numDels, numChecker, lengthExtension);
         for (int i = 0; i < number; ++i) {
             //generate deleted bit locations
-
             vector<long> dels(numDels,0);
             long idx = 0;
             while(idx<numDels){
@@ -62,28 +60,23 @@ void demo(long mlen, int numDels, int numChecker, int lengthExtension, int numbe
 
             //confirm
             if (deldata.compare(orgdata) == 0) {
-                count++;
+                success++;
             }
-            size++;
+            total++;
         }
         //print
-        double aveTime = elapsed_secs / size * 1000;
-        double failRate = (double) (size - count) / size * 100;
-        cout<<mlen<<"\t"<<count<<"\t"<<size<<"\t"<<aveTime<<"\t"<<failRate<<"\t"<<numDels<<"\t"<<numChecker<<"\t"<<lengthExtension<<endl;
+        double aveTime = elapsed_secs / total * 1000;
+        double failRate = (double) (total - success) / total * 100;
+        cout<<mlen<<"\t"<<success<<"\t"<<total<<"\t"<<aveTime<<"\t"<<failRate<<"\t"<<numDels<<"\t"<<numChecker<<"\t"<<lengthExtension<<endl;
 }
 
 int main(int xargc, char **argv) {
-    string a = "hieu";
-    cout<< a.max_size()<<endl;
-
-    cout<<"mlen"<<"\t"<<"count"<<"\t"<<"size"<<"\t"<<"aveTime"<<"\t"<<"failRate"<<"\t"<<"numDels"<<"\t"<<"numChecker"<<"\t"<<"lengthExtension"<<endl;
-    //array<long,4> mlens = {128, 256, 512, 1024};
-    //array<long,1> mlens = {2048};
+    cout<<"mlen"<<"\t"<<"success"<<"\t"<<"total"<<"\t"<<"aveTime"<<"\t"<<"failRate"<<"\t"<<"numDels"<<"\t"<<"numChecker"<<"\t"<<"lengthExtension"<<endl;
 //    array<long,11> mlens = {128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072};
-    array<long,3> mlens = {262144, 524288, 1048576};
-    array<long,2> numCheckers = {1, 3};
+    array<long,11> mlens = {128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072};
+    array<long,1> numCheckers = {2};
     array<long,1> numDels = {1};
-    array<long,3> lengthExtensions = {1, 2, 3};
+    array<long,1> lengthExtensions = {1};
     for ( auto lengthExtension = lengthExtensions.begin(); lengthExtension != lengthExtensions.end(); ++lengthExtension )
     {
         for ( auto numDel = numDels.begin(); numDel != numDels.end(); ++numDel )
