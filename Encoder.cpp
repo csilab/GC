@@ -16,7 +16,6 @@ void Encoder:: setEnVec(int numVec){
            enVec(m)(n) = ZZ_p(1)/ZZ_p((m+n-1));
         }
     }
-        
 }
 void Encoder::toString(){
     GF::toString();
@@ -101,14 +100,14 @@ string Encoder::randBin() {
     return s;
 }
 
-string Encoder::erase(string &s, long idx){
-    s.erase(idx,1);
+string Encoder::erase(string s, long idx){
+    s.erase(idx, 1);
     return s;
 }
 string Encoder::erase(string s, vector<long> idxs){
     sort(idxs.begin(),idxs.begin()+idxs.size());
     for (int i = idxs.size()-1; i > -1; i--) {
-        erase(s,idxs[i]);
+        s.erase(idxs[i], 1);
     }
     return s;
 }

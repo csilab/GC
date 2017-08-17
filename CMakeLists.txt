@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 SET(CMAKE_CXX_FLAGS "-g -O2")
 SET(CMAKE_EXE_LINKER_FLAGS "-lntl -lgmp -lm")
-#include_directories(/usr/local/Cellar/boost/1.64.0_1/include)
-#link_directories(/usr/local/Cellar/boost/1.64.0_1/lib)
 
 set(SOURCE_FILES main.cpp Decoder.cpp Decoder.h Encoder.cpp Encoder.h GF.cpp GF.h)
 add_executable(GC_C___ ${SOURCE_FILES})
