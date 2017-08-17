@@ -4,7 +4,8 @@ This is one of two implimentations that we wrote to simulate Guess & Check Algor
 2. NTL's Multithreading: NTL has its own multithreading library to speed up some matrix calculations.
 3. Levanshtein Distance check (to minimized failure probability with an unnoticeable increase in run time): this is available in the Python implimentation.
 # Guess and Check Algorithms 
-C++ implementation of Guess &amp; Check Algorithms.
+This project was based upon the Guess &amp; Check Algorithms (GC) by Dr. Salim El Rouayheb and Serge Kashanna. The goal of this project was to simulate and optimize the decoding process to recover one or multiple deletions using GC algorithms (please help me on the section, Serge).
+# Installation Guide
 ## Requirements
 1. [Number Theory Library (NTL)](http://www.shoup.net/ntl/) by Victor Shoup: You must install this library to your machine and correctly add the include path to its header files.
 2. Recomended OS: Unix (Mac or Linux).
