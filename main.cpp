@@ -71,25 +71,25 @@ void demo(long mlen, int numDels, int numChecker, int lengthExtension, int numbe
 }
 
 int main(int xargc, char **argv) {
-    cout<<"mlen"<<"\t"<<"success"<<"\t"<<"total"<<"\t"<<"aveTime"<<"\t"<<"failRate"<<"\t"<<"numDels"<<"\t"<<"numChecker"<<"\t"<<"lengthExtension"<<endl;
-//    array<long,11> mlens = {128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072};
-    array<long,11> mlens = {128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072};
-    array<long,1> numCheckers = {2};
-    array<long,1> numDels = {1};
-    array<long,1> lengthExtensions = {1};
-    for ( auto lengthExtension = lengthExtensions.begin(); lengthExtension != lengthExtensions.end(); ++lengthExtension )
-    {
-        for ( auto numDel = numDels.begin(); numDel != numDels.end(); ++numDel )
-        {
-            for ( auto numChecker = numCheckers.begin(); numChecker != numCheckers.end(); ++numChecker )
-            {
-                for ( auto mlen = mlens.begin(); mlen != mlens.end(); ++mlen )
-                {
-                        demo(*mlen, *numDel, *numChecker, *lengthExtension, 1000);
+    cout << "mlen" << "\t" << "success" << "\t" << "total" << "\t" << "aveTime" << "\t" << "failRate" << "\t"
+         << "numDels" << "\t" << "numChecker" << "\t" << "lengthExtension" << endl;
+    array<long,8> mlens = {128, 256, 512, 1024, 2048, 4096, 8192, 16384};
+//    array<long, 14> mlens = {128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288,
+//                             1048576};
+    array<long, 2> numCheckers = {2, 3};
+    array<long, 1> numDels = {2};
+    array<long, 3> lengthExtensions = {1, 2, 3};
+    for (auto numDel = numDels.begin(); numDel != numDels.end(); ++numDel) {
+        for (auto lengthExtension = lengthExtensions.begin();
+             lengthExtension != lengthExtensions.end(); ++lengthExtension) {
+            for (auto numChecker = numCheckers.begin(); numChecker != numCheckers.end(); ++numChecker) {
+                for (auto mlen = mlens.begin(); mlen != mlens.end(); ++mlen) {
+                    demo(*mlen, *numDel, *numChecker, *lengthExtension, 100);
                 }
             }
         }
     }
 }
+
 
 
